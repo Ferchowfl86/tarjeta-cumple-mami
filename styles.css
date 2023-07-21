@@ -1,0 +1,29 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-image: url("imagenes/background.png");
+    background-size: cover;
+}
+
+.texto{
+    color: #4B0082;
+    font-size: 50px;
+    font-style: italic;
+}
+
+.image-container {
+    margin: 30px auto;
+}
+
+.image-container img {
+    width: 400px;
+    height: 300px;
+    border: 2px solid #000;
+    display: block;
+    margin: 0 auto;
+    transition: opacity 3s ease-in-out;
+}
+
+.hidden {
+    display: none;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Tarjeta de Cumpleaños</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="reset.css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 class="texto">Feliz Cumpleaños!</h1>
+    <div class="image-container">
+        <img id="birthdayImage" src="imagenes/imagen1.jpg" alt="Imagen de cumpleaños">
+    </div>
+    <button onclick="startSlideshow()">TE AMO MAMI</button>
+
+    <script>
+        const images = ["imagenes/imagen1.jpg", "imagenes/imagen2.jpg", "imagenes/imagen3.jpg", "imagenes/imagen4.jpg"];
+        let currentImageIndex = 0;
+        let slideshowInterval;
+
+        function showNextImage() {
+            const imageElement = document.getElementById("birthdayImage");
+            imageElement.src = images[currentImageIndex];
+            imageElement.style.opacity = 1;
+
+            currentImageIndex++;
+            if (currentImageIndex === images.length) {
+                currentImageIndex = 0;
+            }
+
+            slideshowInterval = setTimeout(fadeOutImage, 2000);
+            }
+
+        function fadeOutImage() {
+            const imageElement = document.getElementById("birthdayImage");
+            imageElement.style.opacity = 0;
+            clearTimeout(slideshowInterval);
+            slideshowInterval = setTimeout(showNextImage, 2000);
+            }
+
+        function startSlideshow() {
+            showNextImage();
+            }
+
+        function stopSlideshow() {
+            clearTimeout(slideshowInterval);
+            const imageElement = document.getElementById("birthdayImage");
+            imageElement.src = "imagenes/imagen1.jpg";
+            imageElement.style.opacity = 1;
+            }
+
+    </script>
+</body>
+</html>
